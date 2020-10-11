@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8002"
     volumes:
-      - ./valhalla_osm/:/custom_files
+      - ./data/osm/:/custom_files
     environment:
       # The tile_file must be located in the same folder as the volume mount.
       # The tile_file has priority and is used when valid.
@@ -17,18 +17,18 @@ services:
       - min_y=47 # -> Albania | -90  -> World
       - max_x=17 # -> Albania |  180 -> World
       - max_y=49 # -> Albania |  90  -> World
-      - use_tiles_ignore_pbf=True
+      - use_tiles_ignore_pbf=False
       - force_rebuild=False
       - force_rebuild_elevation=False
-      - build_elevation=True
-      - build_admins=True
-      - build_time_zones=True
+      - build_elevation=False
+      - build_admins=False
+      - build_time_zones=False
   valhalla_tomtom:
     image: gisops/valhalla:latest
     ports:
       - "9000:8002"
     volumes:
-      - ./valhalla_tomtom/:/custom_files
+      - ./data/tomtom/:/custom_files
     environment:
       # The tile_file must be located in the same folder as the volume mount.
       # The tile_file has priority and is used when valid.
@@ -40,12 +40,37 @@ services:
       - min_y=47 # -> Albania | -90  -> World
       - max_x=17 # -> Albania |  180 -> World
       - max_y=49 # -> Albania |  90  -> World
-      - use_tiles_ignore_pbf=True
+      - use_tiles_ignore_pbf=False
       - force_rebuild=False
       - force_rebuild_elevation=False
-      - build_elevation=True
-      - build_admins=True
-      - build_time_zones=True
+      - build_elevation=False
+      - build_admins=False
+      - build_time_zones=False
+    depends_on:
+      - valhalla_osm
+  valhalla_here:
+    image: gisops/valhalla:latest
+    ports:
+      - "9005:8002"
+    volumes:
+      - ./data/here/:/custom_files
+    environment:
+      # The tile_file must be located in the same folder as the volume mount.
+      # The tile_file has priority and is used when valid.
+      # If the tile_file doesn't exist, the url is used instead.
+      # Don't blank out tile_url when you use tile_file and vice versa.
+      - tile_urls=https://download.geofabrik.de/europe/austria-latest.osm.pbf
+      # Get correct bounding box from e.g. https://boundingbox.klokantech.com/
+      - min_x=15 # -> Albania | -180 -> World
+      - min_y=47 # -> Albania | -90  -> World
+      - max_x=17 # -> Albania |  180 -> World
+      - max_y=49 # -> Albania |  90  -> World
+      - use_tiles_ignore_pbf=False
+      - force_rebuild=False
+      - force_rebuild_elevation=False
+      - build_elevation=False
+      - build_admins=False
+      - build_time_zones=False
     depends_on:
       - valhalla_osm
   converter_demo:
@@ -55,7 +80,8 @@ services:
     depends_on:
       - valhalla_osm
       - valhalla_tomtom
+      - valhalla_here
     environment:
       - VALHALLA_TOMTOM=http://localhost:9000
       - VALHALLA_OSM=http://localhost:8000
-      - VALHALLA_HERE=http://localhost:9000
+      - VALHALLA_HERE=http://localhost:9005
