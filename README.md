@@ -1,11 +1,15 @@
 # GIS • OPS OSM Street Data Converter Demo
 
-**This repository is under construction until futher notice!!**
+This repository lets you run a ReactJS app for routing & navigation using the open-source [Valhalla routing engine](https://github.com/valhalla/valhalla) allowing you to compare the road networks of OpenStreetMap, TomTom & HERE.
+
+We offer commercial services to convert any proprietary data sources, e.g. TomTom and HERE, to the OSM format to leverage the vast landscape of OSM-based tools and software. See more details at https://gis-ops.com/routing-and-optimisation/#data-services or contact us on enquire@gis-ops.com in case of questions or interest.
+
+---
 
 This repository holds everything necessary to replicate our demo ReactJS web app located at https://converter.gis-ops.com on your local computer, including:
 
 - `docker-compose.yml` to run the web app and 3 instances of [Valhalla](https://github.com/valhalla/valhalla), one for each data source
-- Valhalla road graphs for TomTom, HERE and OSM
+- Valhalla example road graphs for TomTom, HERE and OSM
 
 After the quick setup below you'll be able to view the web app on `http://localhost:3000` in your browser.
 
@@ -35,7 +39,7 @@ sudo systemctl enable docker
 
 1. Download the ZIP archive of this repository (or alternatively clone via `git`)
 2. Unzip the repository to your preferred location
-3. Run the terminal/command script suitable for your OS
+3. `docker-compose up -d` to pull & start all containers
 4. Wait until the Docker images were pulled and the containers were started
 5. Visit `http://localhost:3000` in your browser and **enjoy** :smile:
 
@@ -57,16 +61,13 @@ Using the app you can:
 
 ## Data
 
-The dataset provided out of the box in this repository is only covering **Vienna, Austria**, indicated by the black bounding box in the web app.
+The datasets provided out of the box in this repository are different for each provider and indicated by the black bounding box in the web app:
+
+- **TomTom**: Vinna, Austria
+- **HERE**: Ramsey County, MN, USA
 
 The following data sources are available:
 
 - [**OpenStreetMap (OSM)**](https://www.tomtom.com/products/real-time-map-data/): The world's largest crowd-sourced database of physical objects founded by Steve Coast in 2004. It's also the foundation for a huge universe of open-source and free software, ranging from analytical applications to map rendering and routing applications.
 - [**TomTom**](https://www.tomtom.com/products/real-time-map-data/): The world’s biggest tech companies – including Apple and Uber – choose TomTom Real-Time Map Data to provide context and coverage for drivers in over 200 countries.
 - [**HERE**](https://www.here.com/products/mapping/map-data): HERE Map Data has been at the forefront of mapping innovations for decades, serving automotive OEMs, businesses and governments that require the most accurate location intelligence.
-
-## Licenses
-
-- **OSM**: OpenStreetMap is licensed under the [ODBL](https://opendatacommons.org/licenses/odbl/index.html)
-- **HERE**:
-- **TomTom**:
