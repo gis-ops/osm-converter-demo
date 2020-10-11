@@ -1,6 +1,6 @@
 # GIS • OPS OSM Street Data Converter Demo
 
-This repository lets you run a ReactJS app for routing & navigation using the open-source [Valhalla routing engine](https://github.com/valhalla/valhalla) allowing you to compare the road networks of OpenStreetMap, TomTom & HERE.
+This repository lets you run a ReactJS app for routing & navigation using the open-source [Valhalla routing engine](https://github.com/valhalla/valhalla) and allowing you to compare the road networks of **OpenStreetMap, TomTom & HERE**.
 
 We offer commercial services to convert any proprietary data sources, e.g. TomTom and HERE, to the OSM format to leverage the vast landscape of OSM-based tools and software. See more details at https://gis-ops.com/routing-and-optimisation/#data-services or contact us on enquire@gis-ops.com in case of questions or interest.
 
