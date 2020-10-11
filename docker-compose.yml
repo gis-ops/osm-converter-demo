@@ -1,8 +1,15 @@
 version: '2.4'
+
+networks:
+  backend:
+    driver: "bridge"
+
 services:
   valhalla_osm:
     image: gisops/valhalla:latest
     container_name: valhalla_osm
+    networks:
+      - backend
     ports:
       - "8000:8002"
     volumes:
@@ -27,6 +34,8 @@ services:
   valhalla_tomtom:
     image: gisops/valhalla:latest
     container_name: valhalla_tomtom
+    networks:
+      - backend
     ports:
       - "9000:8002"
     volumes:
@@ -53,6 +62,8 @@ services:
   valhalla_here:
     image: gisops/valhalla:latest
     container_name: valhalla_here
+    networks:
+      - backend
     ports:
       - "9005:8002"
     volumes:
@@ -79,6 +90,12 @@ services:
   converter_demo:
     image: gisops/converter-demo-app:latest
     container_name: converter-demo-app
+    networks:
+      - backend
+    links:
+      - valhalla_osm
+      - valhalla_tomtom
+      - valhalla_here
     build:
       context: .
     ports:
