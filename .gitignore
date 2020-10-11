@@ -1,2 +1,7 @@
-**/valhalla_*/
+**/valhalla.json
+**/elevation_data/
+**/admin_data/
+**/timezone_data/
+docker-compose.*.yml
+**/.file_hashes.txt
 .idea
