@@ -4,6 +4,8 @@ This repository lets you run a ReactJS app for routing & navigation using the op
 
 We offer commercial services to convert any proprietary data sources, e.g. TomTom and HERE, to the OSM format to leverage the vast landscape of OSM-based tools and software. See more details at https://gis-ops.com/routing-and-optimisation/#data-services or contact us on enquire@gis-ops.com in case of questions or interest.
 
+![react app preview](img/preview.png)
+
 ---
 
 This repository holds everything necessary to replicate our demo ReactJS web app located at https://converter.gis-ops.com on your local computer, including:
