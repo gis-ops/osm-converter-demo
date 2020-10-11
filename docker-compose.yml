@@ -1,7 +1,8 @@
-version: '3.0'
+version: '2.4'
 services:
   valhalla_osm:
     image: gisops/valhalla:latest
+    container_name: valhalla_osm
     ports:
       - "8000:8002"
     volumes:
@@ -17,7 +18,7 @@ services:
       - min_y=47 # -> Albania | -90  -> World
       - max_x=17 # -> Albania |  180 -> World
       - max_y=49 # -> Albania |  90  -> World
-      - use_tiles_ignore_pbf=False
+      - use_tiles_ignore_pbf=True
       - force_rebuild=False
       - force_rebuild_elevation=False
       - build_elevation=False
@@ -25,6 +26,7 @@ services:
       - build_time_zones=False
   valhalla_tomtom:
     image: gisops/valhalla:latest
+    container_name: valhalla_tomtom
     ports:
       - "9000:8002"
     volumes:
@@ -40,7 +42,7 @@ services:
       - min_y=47 # -> Albania | -90  -> World
       - max_x=17 # -> Albania |  180 -> World
       - max_y=49 # -> Albania |  90  -> World
-      - use_tiles_ignore_pbf=False
+      - use_tiles_ignore_pbf=True
       - force_rebuild=False
       - force_rebuild_elevation=False
       - build_elevation=False
@@ -50,6 +52,7 @@ services:
       - valhalla_osm
   valhalla_here:
     image: gisops/valhalla:latest
+    container_name: valhalla_here
     ports:
       - "9005:8002"
     volumes:
@@ -65,7 +68,7 @@ services:
       - min_y=47 # -> Albania | -90  -> World
       - max_x=17 # -> Albania |  180 -> World
       - max_y=49 # -> Albania |  90  -> World
-      - use_tiles_ignore_pbf=False
+      - use_tiles_ignore_pbf=True
       - force_rebuild=False
       - force_rebuild_elevation=False
       - build_elevation=False
@@ -75,12 +78,11 @@ services:
       - valhalla_osm
   converter_demo:
     image: gisops/converter-demo-app:latest
+    container_name: converter-demo-app
+    build:
+      context: .
     ports:
       - "3000:80"
-    depends_on:
-      - valhalla_osm
-      - valhalla_tomtom
-      - valhalla_here
     environment:
       - VALHALLA_TOMTOM=http://localhost:9000
       - VALHALLA_OSM=http://localhost:8000
