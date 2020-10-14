@@ -2,7 +2,7 @@
 
 This repository lets you run a ReactJS app for routing & navigation using the open-source [Valhalla routing engine](https://github.com/valhalla/valhalla) and allowing you to compare the road networks of **OpenStreetMap, TomTom & HERE**.
 
-We offer commercial services to convert any proprietary data sources, e.g. TomTom and HERE, to the OSM format to leverage the vast landscape of OSM-based tools and software. See more details at https://gis-ops.com/routing-and-optimisation/#data-services or contact us on enquire@gis-ops.com in case of questions or interest.
+We offer commercial services to convert any proprietary data sources, e.g. TomTom and HERE, to the OSM data model to leverage the vast landscape of OSM-based tools and software. See more details at https://gis-ops.com/routing-and-optimisation/#data-services or contact us on enquiry@gis-ops.com in case of questions or interest.
 
 ![react app preview](img/preview.png)
 
@@ -51,7 +51,7 @@ The demo app is a showcase for our commercial service to **convert any arbitrary
 
 Using the app you can:
 
-- calulate routes and isochrones for **car or truck** profiles in the region of Vienna, Austria
+- calulate routes and isochrones for **car or truck** profiles in the region of Vienna, Austria (TomTom) or Ramsey County, MN (HERE)
 - fully customize your profile with a variety of different weights and restrictions, including:
     - truck **weight, height, width, length, axle load and hazardous materials**
     - avoid highways or tollways
@@ -71,5 +71,5 @@ The datasets provided out of the box in this repository are different for each p
 The following data sources are available:
 
 - [**OpenStreetMap (OSM)**](https://www.tomtom.com/products/real-time-map-data/): The world's largest crowd-sourced database of physical objects founded by Steve Coast in 2004. It's also the foundation for a huge universe of open-source and free software, ranging from analytical applications to map rendering and routing applications.
-- [**TomTom**](https://www.tomtom.com/products/real-time-map-data/): The world’s biggest tech companies – including Apple and Uber – choose TomTom Real-Time Map Data to provide context and coverage for drivers in over 200 countries.
+- [**TomTom**](https://www.tomtom.com/products/real-time-map-data/): The world’s biggest tech companies – including Apple, Uber and Tesla – choose TomTom Real-Time Map Data to provide context and coverage for drivers in over 200 countries.
 - [**HERE**](https://www.here.com/products/mapping/map-data): HERE Map Data has been at the forefront of mapping innovations for decades, serving automotive OEMs, businesses and governments that require the most accurate location intelligence.
