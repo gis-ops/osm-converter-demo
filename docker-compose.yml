@@ -78,8 +78,8 @@ services:
     depends_on:
       - valhalla_osm
   converter_demo:
-    image: gisops/converter-demo-app:latest
-    container_name: converter-demo-app
+    image: gisops/prop2osm-demo-app:latest
+    container_name: prop2osm-demo-app
     ports:
       - "3000:80"
     environment:
