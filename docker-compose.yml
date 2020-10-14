@@ -78,10 +78,10 @@ services:
     depends_on:
       - valhalla_osm
   converter_demo:
-    image: gisops/converter-demo-app:latest
+    image: gisops/prop2osm-demo-app:latest
     container_name: converter-demo-app
     ports:
-      - "3000:80"
+      - "3005:80"
     environment:
       - VALHALLA_TOMTOM=http://localhost:9000
       - VALHALLA_OSM=http://localhost:8000
