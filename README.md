@@ -10,7 +10,7 @@ We offer commercial services to convert any proprietary data sources, e.g. TomTo
 
 This repository holds everything necessary to replicate our demo ReactJS web app located at https://converter.gis-ops.com on your local computer, including:
 
-- `docker-compose.yml` to run the web app and 3 instances of [Valhalla](https://github.com/valhalla/valhalla), one for each data source
+- `docker-compose.yml` to run the web app and 3 instances of [Valhalla](https://github.com/valhalla/valhalla), one for each data source (OSM, TomTom, HERE)
 - Valhalla example road graphs for TomTom, HERE and OSM
 
 After the quick setup below you'll be able to view the web app on `http://localhost:3000` in your browser.
@@ -65,11 +65,11 @@ Using the app you can:
 
 The datasets provided out of the box in this repository are different for each provider and indicated by the black bounding box in the web app:
 
-- **TomTom**: Vinna, Austria
+- **TomTom**: Linz, Austria
 - **HERE**: Ramsey County, MN, USA
 
 The following data sources are available:
 
-- [**OpenStreetMap (OSM)**](https://www.tomtom.com/products/real-time-map-data/): The world's largest crowd-sourced database of physical objects founded by Steve Coast in 2004. It's also the foundation for a huge universe of open-source and free software, ranging from analytical applications to map rendering and routing applications.
+- [**OpenStreetMap (OSM)**](https://openstreetmap.org): The world's largest crowd-sourced database of physical objects founded by Steve Coast in 2004. It's also the foundation for a huge universe of open-source and free software, ranging from analytical applications to map rendering and routing applications.
 - [**TomTom**](https://www.tomtom.com/products/real-time-map-data/): The world’s biggest tech companies – including Apple, Uber and Tesla – choose TomTom Real-Time Map Data to provide context and coverage for drivers in over 200 countries.
 - [**HERE**](https://www.here.com/products/mapping/map-data): HERE Map Data has been at the forefront of mapping innovations for decades, serving automotive OEMs, businesses and governments that require the most accurate location intelligence.
